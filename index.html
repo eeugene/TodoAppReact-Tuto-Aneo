@@ -18,8 +18,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
     <script type="text/babel">
 
+      const Todo = React.createClass({
+
+        getInitialState () {
+          return {
+            todo: {
+              title:'hello',
+              completed: true
+            }
+          }
+        },
+
+        render() {
+          const {todo} = this.state
+
+          return (
+            <span>
+              <h3>
+              {todo.completed ? <strike>{todo.title}</strike> : todo.title}
+              </h3>
+            </span>
+          )
+        }
+      })
+
       ReactDOM.render(
-        <div>hello world</div>,
+        <Todo />,
         document.getElementById('container')
       );
 
